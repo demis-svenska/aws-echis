@@ -10,6 +10,7 @@ dev_users:
     - echis_esubalew
     - echis_robel
     - echis_siraj
-    - echis_demisew
+    - pc
+    - echis_preethi
   absent:
     - echis_melese
