@@ -1,7 +1,7 @@
 internal_domain_name: moh.gov.et
 
-DATADOG_ENABLED: False
-DATADOG_INTEGRATIONS_ENABLED: False
+DATADOG_ENABLED: True
+DATADOG_INTEGRATIONS_ENABLED: True
 
 elasticsearch_endpoint: '{{ groups.elasticsearch.0 }}'
 elasticsearch_memory: '4096m'
@@ -18,10 +18,10 @@ server_admin_email: echis_server_admin@moh.gov.et
 nofile_limit: 65536
 ssh_allow_password: True
 
-backup_blobdb: False
-backup_postgres: False
+backup_blobdb: True
+backup_postgres: plain
 backup_es_s3: False
-backup_couch: False
+backup_couch: True
 postgres_s3: False
 blobdb_s3: False
 couch_s3: False
@@ -51,6 +51,9 @@ couch_dbs:
     username: "{{ localsettings_private.COUCH_USERNAME }}"
     password: "{{ localsettings_private.COUCH_PASSWORD }}"
     is_https: False
+nameservers:
+  - 8.8.8.8
+  - 8.8.4.4
 
 localsettings:
   ALLOWED_HOSTS:

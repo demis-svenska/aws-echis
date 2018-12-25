@@ -1,5 +1,5 @@
-jython_memory: "1024m"
-formplayer_memory: "1024m"
+jython_memory: "8192m"
+formplayer_memory: "8192m"
 # workers = static_factor + (factor * cpu_count)
 gunicorn_workers_factor: 0
 gunicorn_workers_static_factor: 6
@@ -11,16 +11,16 @@ celery_processes:
     ucr_queue:
   echis_server0:
     celery,export_download_queue,email_queue,case_import_queue:
-      concurrency: 1
+      concurrency: 8
       max_tasks_per_child: 5
     background_queue,case_rule_queue,analytics_queue:
-      concurrency: 1
-      max_tasks_per_child: 1
+      concurrency: 8
+      max_tasks_per_child: 5
     beat: {}
     celery_periodic:
-      concurrency: 1
+      concurrency: 4
     saved_exports_queue:
-      concurrency: 1
+      concurrency: 3
       max_tasks_per_child: 1
       optimize: True
     submission_reprocessing_queue:
@@ -32,7 +32,7 @@ celery_processes:
       pooling: gevent
       concurrency: 5
     reminder_rule_queue:
-      concurrency: 1
+      concurrency: 2
       max_tasks_per_child: 1
     sms_queue:
       pooling: gevent
@@ -53,7 +53,7 @@ pillows:
     DomainDbKafkaPillow:
       num_processes: 1
     FormSubmissionMetadataTrackerPillow:
-      num_processes: 1
+      num_processes: 8
     GroupPillow:
       num_processes: 1
     GroupToUserPillow:
@@ -73,10 +73,10 @@ pillows:
     UserPillow:
       num_processes: 1
     XFormToElasticsearchPillow:
-      num_processes: 1
+      num_processes: 4
     kafka-ucr-static:
-      num_processes: 1
+      num_processes: 9
     kafka-ucr-main:
-      num_processes: 1
+      num_processes: 9
    #CaseSearchToElasticsearchPillow
    #LedgerToElasticsearchPillow

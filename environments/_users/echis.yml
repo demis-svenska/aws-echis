@@ -12,5 +12,6 @@ dev_users:
     - echis_siraj
     - pc
     - echis_preethi
+    - droberts
   absent:
     - echis_melese
