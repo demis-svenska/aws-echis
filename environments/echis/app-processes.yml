@@ -53,7 +53,7 @@ pillows:
     DomainDbKafkaPillow:
       num_processes: 1
     FormSubmissionMetadataTrackerPillow:
-      num_processes: 8
+      num_processes: 1
     GroupPillow:
       num_processes: 1
     GroupToUserPillow:
@@ -73,10 +73,10 @@ pillows:
     UserPillow:
       num_processes: 1
     XFormToElasticsearchPillow:
-      num_processes: 4
+      num_processes: 1
     kafka-ucr-static:
-      num_processes: 9
+      num_processes: 1
     kafka-ucr-main:
-      num_processes: 9
+      num_processes: 1
    #CaseSearchToElasticsearchPillow
    #LedgerToElasticsearchPillow
