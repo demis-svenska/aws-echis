@@ -13,5 +13,6 @@ dev_users:
     - pc
     - echis_preethi
     - droberts
+    - jroth
   absent:
     - echis_melese

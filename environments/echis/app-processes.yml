@@ -36,30 +36,30 @@ celery_processes:
       max_tasks_per_child: 1
     sms_queue:
       pooling: gevent
-      concurrency: 10
+      concurrency: 5
     flower: {}
 pillows:
   echis_server0:
     AppDbChangeFeedPillow:
       num_processes: 1
     ApplicationToElasticsearchPillow:
-      num_processes: 1
+      num_processes: 5
     CacheInvalidatePillow:
       num_processes: 1
     CaseToElasticsearchPillow:
-      num_processes: 1
+      num_processes: 5
     DefaultChangeFeedPillow:
       num_processes: 1
     DomainDbKafkaPillow:
       num_processes: 1
     FormSubmissionMetadataTrackerPillow:
-      num_processes: 1
+      num_processes: 5
     GroupPillow:
       num_processes: 1
     GroupToUserPillow:
       num_processes: 1
     KafkaDomainPillow:
-      num_processes: 1
+      num_processes: 5
     SqlSMSPillow:
       num_processes: 1
     UnknownUsersPillow:
@@ -73,7 +73,7 @@ pillows:
     UserPillow:
       num_processes: 1
     XFormToElasticsearchPillow:
-      num_processes: 1
+      num_processes: 5
     kafka-ucr-static:
       num_processes: 1
     kafka-ucr-main:
