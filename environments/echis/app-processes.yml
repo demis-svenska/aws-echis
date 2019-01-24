@@ -25,7 +25,7 @@ celery_processes:
       optimize: True
     submission_reprocessing_queue:
       concurrency: 1
-    reminder_case_update_queue:
+    reminder_case_update_queue,ucr_indicator_queue,ucr_queue:
       pooling: gevent
       concurrency: 5
     reminder_queue:
