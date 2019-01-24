@@ -11,6 +11,27 @@ an action on your part will be marked "_action optional_".
 
 ## Changelog
 
+### **2019-01-16** [Fix encrypted temp directory permissions](0011-fix-encrypted-tmp-permissions.md)
+This is a followup to [Added encrypted temporary directory](./0001-add-encrypted-tmp.md)
+in which we introduced an encrypted directory for temp files.
+In its original implementation, this file was owned by root,
+and processes were unable to write to it.
+
+This changes the directory to be owned by cchq, allowing our processes to write to the file.
+
+### **2019-01-02** [Restart nginx after every letsencrypt cert auto-renewal](0010-letsencrypt-restart-nginx.md)
+Previously you had to manually restart nginx every time letsencrypt auto-renewed,
+which was about every two months.
+
+### **2018-12-15** [Blob Metadata Migration - part 2](0009-blob-metadata-part-2.md) (_action required_)
+Form submission attachment metadata is being consolidated in the blob
+metadata table in SQL. This migration consists of a series of commands that
+will consolidate the data in your environment.
+
+### **2018-09-24** [Blob Metadata Migration - part 1](0008-blob-metadata-part-1.md) (_action required_)
+Blob metadata needs to be migrated from CouchDB to SQL. This migration
+consists of a series of commands that will move the data in your environment.
+
 ### **2018-11-26** [Reorganize pillows](0007-reorganize-pillows.md) (_action required_)
 Pillows read changes from kafka and do various processing such as sending them to
 elasticsearch, transforming into a UCR table row etc. A doc for same change is read

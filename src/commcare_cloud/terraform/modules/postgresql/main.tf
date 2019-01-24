@@ -16,6 +16,7 @@ module "postgresql" {
   allocated_storage = "${var.rds_instance["storage"]}"
 
   apply_immediately     = "${var.apply_immediately}"
+  auto_minor_version_upgrade = false
 
   name     = ""
   username = "${var.rds_instance["username"]}"
@@ -53,5 +54,8 @@ module "postgresql" {
   storage_encrypted = true
   tags {
     workload-type = "other"
+    Name = "${var.rds_instance["identifier"]}"
+    Environment = "${var.environment}"
+    Group = "postgresql"
   }
 }
