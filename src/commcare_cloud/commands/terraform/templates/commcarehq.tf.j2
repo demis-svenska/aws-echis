@@ -69,10 +69,6 @@ resource "aws_dlm_lifecycle_policy" "data_volume_backups" {
         count = 7
       }
 
-      tags_to_add = {
-        VolumeType = "backup"
-      }
-
       copy_tags = true
     }
 
@@ -116,7 +112,7 @@ resource "aws_eip" "proxy__{{ server.server_name }}" {
 }
 {% endfor %}
 
-
+{% if redis %}
 module "Redis" {
   source               = "./modules/elasticache"
   create               = "{{ redis.create|tojson }}"
@@ -130,6 +126,7 @@ module "Redis" {
   elasticache_subnets  = "${values(module.network.subnets-db-private)}"
   security_group_ids   = ["${module.network.elasticache-sg}", "${module.network.vpn-connections-sg}"]
 }
+{% endif %}
 
 module "openvpn" {
   source = "./modules/openvpn"
