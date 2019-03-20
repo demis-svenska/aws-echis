@@ -1,4 +1,4 @@
-override:
+pgbouncer_override:
   pgbouncer_max_connections: 1500
   pgbouncer_default_pool: 290
   postgresql_max_connections: 900

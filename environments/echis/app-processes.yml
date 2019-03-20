@@ -21,6 +21,7 @@ celery_processes:
     saved_exports_queue:
       concurrency: 3
       max_tasks_per_child: 3
+      concurrency: 1
       optimize: True
     submission_reprocessing_queue:
       concurrency: 3
