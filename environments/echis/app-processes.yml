@@ -1,5 +1,5 @@
-jython_memory: "8192m"
-formplayer_memory: "8192m"
+jython_memory: "12288m"
+formplayer_memory: "12288m"
 # workers = static_factor + (factor * cpu_count)
 gunicorn_workers_factor: 0
 gunicorn_workers_static_factor: 6
@@ -20,10 +20,10 @@ celery_processes:
       concurrency: 4
     saved_exports_queue:
       concurrency: 3
-      max_tasks_per_child: 1
+      max_tasks_per_child: 3
       optimize: True
     submission_reprocessing_queue:
-      concurrency: 1
+      concurrency: 3
     reminder_case_update_queue:
       pooling: gevent
       concurrency: 3
@@ -31,11 +31,11 @@ celery_processes:
       pooling: gevent
       concurrency: 5
     reminder_rule_queue:
-      concurrency: 1
-      max_tasks_per_child: 1
+      concurrency: 3
+      max_tasks_per_child: 3
     ucr_indicator_queue,ucr_queue:
-      concurrency: 2
-      max_tasks_per_child: 1
+      concurrency: 5
+      max_tasks_per_child: 3
     sms_queue:
       pooling: gevent
       concurrency: 5
@@ -43,42 +43,42 @@ celery_processes:
 pillows:
   echis_server0:
     AppDbChangeFeedPillow:
-      num_processes: 1
+      num_processes: 5
     ApplicationToElasticsearchPillow:
       num_processes: 5
     CacheInvalidatePillow:
-      num_processes: 1
+      num_processes: 3
     CaseToElasticsearchPillow:
       num_processes: 5
     DefaultChangeFeedPillow:
-      num_processes: 1
+      num_processes: 5
     DomainDbKafkaPillow:
-      num_processes: 1
+      num_processes: 5
     FormSubmissionMetadataTrackerPillow:
       num_processes: 5
     GroupPillow:
-      num_processes: 1
+      num_processes: 2
     GroupToUserPillow:
-      num_processes: 1
+      num_processes: 2
     KafkaDomainPillow:
       num_processes: 5
     SqlSMSPillow:
-      num_processes: 1
+      num_processes: 2
     UnknownUsersPillow:
-      num_processes: 1
+      num_processes: 2
     UpdateUserSyncHistoryPillow:
-      num_processes: 1
+      num_processes: 2
     UserCacheInvalidatePillow:
-      num_processes: 1
+      num_processes: 2
     UserGroupsDbKafkaPillow:
-      num_processes: 1
+      num_processes: 2
     UserPillow:
-      num_processes: 1
+      num_processes: 2
     XFormToElasticsearchPillow:
       num_processes: 5
     kafka-ucr-static:
-      num_processes: 1
+      num_processes: 5
     kafka-ucr-main:
-      num_processes: 1
+      num_processes: 5
    #CaseSearchToElasticsearchPillow
    #LedgerToElasticsearchPillow
