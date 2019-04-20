@@ -10,7 +10,7 @@ celery_processes:
     async_restore_queue:
   echis_server0:
     celery,export_download_queue,email_queue,case_import_queue:
-      concurrency: 8
+      concurrency: 16
       max_tasks_per_child: 5
     background_queue,case_rule_queue,analytics_queue:
       concurrency: 8
@@ -35,8 +35,8 @@ celery_processes:
       concurrency: 3
       max_tasks_per_child: 3
     ucr_indicator_queue,ucr_queue:
-      concurrency: 5
-      max_tasks_per_child: 3
+      concurrency: 10 
+      max_tasks_per_child: 5
     sms_queue:
       pooling: gevent
       concurrency: 5
