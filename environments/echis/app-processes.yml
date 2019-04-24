@@ -5,15 +5,27 @@ gunicorn_workers_factor: 0
 gunicorn_workers_static_factor: 6
 
 celery_processes:
-  None:
-    repeat_record_queue:
-    async_restore_queue:
+ # None:
+ #   repeat_record_queue:
+ #   async_restore_queue:
   echis_server0:
+    send_report_throttled:
+      concurrency: 2
+    async_restore_queue:
+#      num_workers: 4
+      concurrency: 2
+    repeat_record_queue:
+      pooling: gevent
+#      num_workers: 5
+      concurrency: 20
+    sumologic_logs_queue:
+      pooling: gevent
+      concurrency: 20
     celery,export_download_queue,email_queue,case_import_queue:
       concurrency: 16
       max_tasks_per_child: 5
     background_queue,case_rule_queue,analytics_queue:
-      concurrency: 8
+      concurrency: 10
       max_tasks_per_child: 5
     beat: {}
     celery_periodic:
@@ -35,7 +47,7 @@ celery_processes:
       concurrency: 3
       max_tasks_per_child: 3
     ucr_indicator_queue,ucr_queue:
-      concurrency: 10 
+      concurrency: 8 
       max_tasks_per_child: 5
     sms_queue:
       pooling: gevent
