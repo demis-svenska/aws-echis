@@ -53,6 +53,8 @@ class ServerConfig(jsonobject.JsonObject):
     volume_size = jsonobject.IntegerProperty(default=20)
     block_device = jsonobject.ObjectProperty(lambda: BlockDevice, default=None)
     group = jsonobject.StringProperty()
+    # todo: invert this so that all new machines are bionic unless otherwise specified
+    os = jsonobject.StringProperty(required=True)
 
 
 class BlockDevice(jsonobject.JsonObject):
@@ -74,6 +76,22 @@ class RdsInstanceConfig(jsonobject.JsonObject):
     maintenance_window = "sat:08:27-sat:08:57"
     port = 5432
     params = jsonobject.DictProperty()
+
+    _default_params = {
+        'pg_stat_statements.track': 'all',
+        'pg_stat_statements.max': 10000,
+        'track_activity_query_size': 2048,
+    }
+
+    @classmethod
+    def wrap(cls, data):
+        if 'params' not in data:
+            data['params'] = {}
+        params = data['params']
+        for name, value in cls._default_params.items():
+            if name not in params:
+                params[name] = value
+        return super(RdsInstanceConfig, cls).wrap(data)
 
 
 class RedisConfig(jsonobject.JsonObject):

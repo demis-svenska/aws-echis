@@ -13,8 +13,8 @@
       include_role:
         name: nginx
         tasks_from: certs
-      when: not nginx_installed|default(False)
-      tags: nginx
+      tags:
+        - nginx
 
 - name: Proxy
   hosts: proxy
@@ -115,7 +115,7 @@
         site_config: {name: riakcs, vars_file: riakcs}
 
 - name: Reach Proxy
-  hosts: proxy
+  hosts: reach_proxy
   tasks:
     - include_role:
         name: nginx

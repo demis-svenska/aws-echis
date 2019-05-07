@@ -4,6 +4,7 @@ celery2-production: 10.202.12.26
 celery3-production: 10.202.12.121
 celery4-production: 10.202.12.62
 celery5-production: 10.202.12.120
+celery6-production: 10.202.12.126
 control-production: 10.202.10.79
 couch3-production: 10.202.40.135
 couch4-production: 10.202.40.97
@@ -22,6 +23,7 @@ esmaster0-production: 10.202.41.120
 esmaster1-production: 10.202.41.236
 esmaster2-production: 10.202.40.201
 formplayer0-production: 10.202.10.21
+formplayer1-production: 10.202.10.4
 kafka0-production: 10.202.40.70
 pgbouncer0-production: 10.202.40.58
 pgmain0-production: pgmain0-production.cl9dmuo3ok4h.us-east-1.rds.amazonaws.com

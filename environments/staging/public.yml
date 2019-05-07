@@ -23,8 +23,6 @@ formplayer_archive_time_spec: '10m'
 
 KSPLICE_ACTIVE: yes
 
-ufw_private_interface: "{{ 'eth0' if ec2|default(false) else 'eth1' }}"
-
 couch_dbs:
   default:
     host: "{{ groups.couchdb2_proxy.0 }}"
@@ -54,26 +52,16 @@ localsettings:
   ALLOWED_HOSTS:
     - j2mestaging.commcarehq.org
     - testserver
-    - "{{ REACH_SITE_HOST }}"
   ANALYTICS_DEBUG: True
   ANALYTICS_LOG_LEVEL: "debug"
   BANK_ADDRESS: { 'first_line': "1 Citizens Drive", 'city': "Riverside", 'region': "RI", 'postal_code': "02915" }
   BANK_NAME: "RBS Citizens N.A."
   BANK_SWIFT_CODE: 'CTZIUS33'
   CELERY_PERIODIC_QUEUE: 'celery_null'
-  COMMCARE_NAME:
-    'reach.commcarehq.org': 'REACH'
-    'default': 'CommCare'
-  COMMCARE_HQ_NAME:
-    'reach.commcarehq.org': 'REACH HQ'
-    'default': 'CommCare HQ'
   COUCH_CACHE_DOCS: True
   COUCH_CACHE_VIEWS: True
   COUCH_PASSWORD: "{{ localsettings_private.COUCH_PASSWORD }}"
   COUCH_USERNAME: "{{ localsettings_private.COUCH_USERNAME }}"
-  CUSTOM_LANDING_TEMPLATE:
-    'reach.commcarehq.org': 'icds/login.html'
-    'default': 'login_and_password/login.html'
   DEPLOY_MACHINE_NAME: "{{ ansible_hostname }}"
   EMAIL_SMTP_HOST: email-smtp.us-east-1.amazonaws.com
   EMAIL_SMTP_PORT: 587
@@ -110,11 +98,11 @@ localsettings:
 commcare_cloud_root_user: ubuntu
 commcare_cloud_pem: ~/.ssh/id_rsa
 
-PY3_RUN_CELERY_BEAT: False
-PY3_RUN_CELERY_FLOWER: False
-PY3_RUN_CELERY_WORKER: False
-PY3_RUN_ERRAND_BOY: False
-PY3_RUN_GUNICORN: False
-PY3_RUN_MANAGEMENT: False
-PY3_RUN_PILLOWTOP: False
-PY3_RUN_WEBSOCKETS: False
+PY3_RUN_CELERY_BEAT: True
+PY3_RUN_CELERY_FLOWER: True
+PY3_RUN_CELERY_WORKER: True
+PY3_RUN_ERRAND_BOY: True
+PY3_RUN_GUNICORN: True
+PY3_RUN_MANAGEMENT: True
+PY3_RUN_PILLOWTOP: True
+PY3_RUN_WEBSOCKETS: True

@@ -137,7 +137,8 @@ def run_ansible_playbook(
         return subprocess.call(cmd_parts, env=env_vars)
 
     def run_check():
-        return ansible_playbook(environment, playbook, '--check', *unknown_args)
+        with environment.suppress_vault_loaded_event():
+            return ansible_playbook(environment, playbook, '--check', *unknown_args)
 
     def run_apply():
         return ansible_playbook(environment, playbook, *unknown_args)
@@ -300,8 +301,13 @@ class UpdateSupervisorConfs(_AnsiblePlaybookAlias):
         unknown_args += ('--tags=services',)
         rc = AnsiblePlaybook(self.parser).run(args, unknown_args)
         if ask("Would you like to update supervisor to use the new configurations?"):
-            exec_fab_command(args.env_name, 'supervisorctl:"reread"')
-            exec_fab_command(args.env_name, 'supervisorctl:"update"')
+            carryover_args = []
+            if args.limit:
+                carryover_args.extend(['--limit', args.limit])
+            commcare_cloud(
+                args.env_name, 'run-shell-command', 'webworkers:celery:pillowtop:formplayer',
+                'supervisorctl reread; supervisorctl update', '-b', *carryover_args
+            )
         else:
             return rc
 

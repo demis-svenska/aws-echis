@@ -1,0 +1,28 @@
+title: Fix to restart nginx after every letsencrypt cert auto-renewal
+key: fix-letsencrypt-restart-nginx
+date: 2019-02-26
+
+optional_per_env: yes
+
+min_commcare_version:
+max_commcare_version:
+
+context: |
+  Previously you had to manually restart nginx every time letsencrypt auto-renewed,
+  which was about every two months. We believed we had fixed this with
+  [Restart nginx after every letsencrypt cert auto-renewal](0010-letsencrypt-restart-nginx),
+  but there was an error in our setup at that time that made it not work as intended.
+
+details: |
+  This migration applies an update to the cron job that triggers renewing the letsencrypt cert,
+  that makes it also restart nginx directly after renewing.
+  This makes the cert renewal process completely automatic
+  so that staying on an up-to-date cert indefinitely
+  should no longer require human intervention.
+
+update_steps: |
+  To apply, simply run
+  ```
+  commcare-cloud <env> ansible-playbook deploy_proxy.yml --tags=setup_letsencrypt
+  ```
+  using the latest version of commcare-cloud.
