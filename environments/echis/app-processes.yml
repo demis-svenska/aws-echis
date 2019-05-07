@@ -6,21 +6,21 @@ gunicorn_workers_static_factor: 6
 
 celery_processes:
   echis_server0:
-    repeat_record_queue:
-      pooling: gevent
-#      num_workers: 5
-      concurrency: 20
-    sumologic_logs_queue:
-      pooling: gevent
-      concurrency: 20
     beat: {}
-    celery_periodic:
-      concurrency: 4
+#    saved_exports_queue:
+#      concurrency: 3
+#      max_tasks_per_child: 3
+#      concurrency: 1
+#      optimize: True
+    flower: {}
+  echis_server2:
     saved_exports_queue:
       concurrency: 3
       max_tasks_per_child: 3
       concurrency: 1
       optimize: True
+    celery_periodic:
+      concurrency: 4
     submission_reprocessing_queue:
       concurrency: 3
     reminder_case_update_queue:
@@ -35,8 +35,13 @@ celery_processes:
     sms_queue:
       pooling: gevent
       concurrency: 5
-    flower: {}
-  echis_server2:
+    sumologic_logs_queue:
+      pooling: gevent
+      concurrency: 20
+    repeat_record_queue:
+      pooling: gevent
+      num_workers: 5
+      concurrency: 20
     ucr_indicator_queue,ucr_queue:
       concurrency: 16
       max_tasks_per_child: 50
