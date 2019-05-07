@@ -7,11 +7,6 @@ gunicorn_workers_static_factor: 6
 celery_processes:
   echis_server0:
     beat: {}
-#    saved_exports_queue:
-#      concurrency: 3
-#      max_tasks_per_child: 3
-#      concurrency: 1
-#      optimize: True
     flower: {}
   echis_server2:
     saved_exports_queue:
@@ -103,5 +98,7 @@ pillows:
       num_processes: 5
     kafka-ucr-main:
       num_processes: 5
-   #CaseSearchToElasticsearchPillow
-   #LedgerToElasticsearchPillow
+    CaseSearchToElasticsearchPillow:
+      num_processes: 2
+    LedgerToElasticsearchPillow:
+      num_processes: 2
