@@ -10,7 +10,6 @@ elastcsearch_backup_days: 3
 elasticsearch_version: 1.7.6
 elasticsearch_download_sha256: 78affc30353730ec245dad1f17de242a4ad12cf808eaa87dd878e1ca10ed77df.
 
-
 default_from_email: echismoh@moh.gov.et
 server_email: echismoh@moh.gov.et
 server_admin_email: echis_server_admin@moh.gov.et
@@ -62,6 +61,9 @@ localsettings:
     - 172.19.3.40
     - 172.19.3.41
     - 172.19.0.240
+    - 172.19.0.241
+    - 172.19.4.38
+    - 172.19.4.39
   COMMCARE_HQ_NAME: 'eCHIS Server'
   COMMCARE_NAME: 'eCHIS'
   COUCH_CACHE_DOCS: True

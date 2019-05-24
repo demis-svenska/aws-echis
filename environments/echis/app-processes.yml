@@ -8,7 +8,25 @@ celery_processes:
   echis_server0:
     beat: {}
     flower: {}
-  echis_server2:
+    export_download_queue:
+      concurrency: 5
+    email_queue:
+      pooling: gevent
+      concurrency: 50
+      num_workers: 2
+    case_import_queue:
+      concurrency: 4
+    celery:
+      concurrency: 4
+    saved_exports_queue:
+      concurrency: 3
+      max_tasks_per_child: 3
+      concurrency: 1
+      optimize: True
+#    celery,export_download_queue,email_queue,case_import_queue:
+#      concurrency: 8
+#      max_tasks_per_child: 50
+  echis_server3:
     saved_exports_queue:
       concurrency: 3
       max_tasks_per_child: 3
@@ -40,9 +58,9 @@ celery_processes:
     ucr_indicator_queue,ucr_queue:
       concurrency: 16
       max_tasks_per_child: 50
-    celery,export_download_queue,email_queue,case_import_queue:
-      concurrency: 16
-      max_tasks_per_child: 50
+#    celery,export_download_queue,email_queue,case_import_queue:
+#      concurrency: 8
+#      max_tasks_per_child: 50
     background_queue,case_rule_queue,analytics_queue:
       concurrency: 10
       max_tasks_per_child: 50
@@ -60,28 +78,17 @@ celery_processes:
 
 pillows:
   echis_server0:
-    AppDbChangeFeedPillow:
-      num_processes: 5
-    ApplicationToElasticsearchPillow:
-      num_processes: 5
     CacheInvalidatePillow:
       num_processes: 3
-    CaseToElasticsearchPillow:
-      num_processes: 5
     DefaultChangeFeedPillow:
-      num_processes: 5
-    DomainDbKafkaPillow:
-      num_processes: 5
-    FormSubmissionMetadataTrackerPillow:
       num_processes: 5
     GroupPillow:
       num_processes: 2
     GroupToUserPillow:
       num_processes: 2
-    KafkaDomainPillow:
-      num_processes: 5
     SqlSMSPillow:
       num_processes: 2
+  echis_server2:
     UnknownUsersPillow:
       num_processes: 2
     UpdateUserSyncHistoryPillow:
@@ -92,6 +99,18 @@ pillows:
       num_processes: 2
     UserPillow:
       num_processes: 2
+    AppDbChangeFeedPillow:
+      num_processes: 5
+    FormSubmissionMetadataTrackerPillow:
+      num_processes: 5
+    ApplicationToElasticsearchPillow:
+      num_processes: 5
+    CaseToElasticsearchPillow:
+      num_processes: 5
+    DomainDbKafkaPillow:
+      num_processes: 5
+    KafkaDomainPillow:
+      num_processes: 5
     XFormToElasticsearchPillow:
       num_processes: 5
     kafka-ucr-static:
