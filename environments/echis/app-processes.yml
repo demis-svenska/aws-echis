@@ -23,9 +23,6 @@ celery_processes:
       max_tasks_per_child: 3
       concurrency: 1
       optimize: True
-#    celery,export_download_queue,email_queue,case_import_queue:
-#      concurrency: 8
-#      max_tasks_per_child: 50
   echis_server3:
     saved_exports_queue:
       concurrency: 3
@@ -58,9 +55,6 @@ celery_processes:
     ucr_indicator_queue,ucr_queue:
       concurrency: 16
       max_tasks_per_child: 50
-#    celery,export_download_queue,email_queue,case_import_queue:
-#      concurrency: 8
-#      max_tasks_per_child: 50
     background_queue,case_rule_queue,analytics_queue:
       concurrency: 10
       max_tasks_per_child: 50
