@@ -1,4 +1,6 @@
 ---
+- import_playbook: host_group_aliases.yml
+
 - name: PostgreSQL Machine Setup
   hosts:
     - postgresql
@@ -23,6 +25,15 @@
 - name: Remote PostgreSQL (e.g. Amazon RDS)
   hosts: django_manage
   tasks:
+    - name: Install python-psycopg2 to be able to set up remote postgresql
+      become: yes
+      block:
+        - apt: name={{ item }} state=latest
+          with_items:
+            - libpq-dev
+        - pip: name={{ item }} state=present
+          with_items:
+            - psycopg2
     - name: Remote PostgreSQL
       include_role:
         name: postgresql_base
@@ -33,6 +44,8 @@
       vars:
         db_is_remote: yes
         is_pg_standby: no
+  tags:
+    - remote_postgresql
 
 - name: PostgreSQL Backup
   hosts: postgresql:pg_backup
@@ -50,7 +63,7 @@
     - state: 'present'
   tasks:
     - import_tasks: roles/setup_auth_keys.yml
-      when: hot_standby_server is defined
+      when: hot_standby_server is defined and hot_standby_server
   tags:
     - pg_standby
 

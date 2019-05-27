@@ -1,4 +1,6 @@
 ---
+- import_playbook: host_group_aliases.yml
+
 - name: CitusDB Machine Setup
   hosts:
     - citusdb_worker
@@ -19,7 +21,7 @@
   hosts: citusdb_cordinator
   become: true
   roles:
-    - {role: pgbouncer, tags: 'citusdb_cordinator'}
+    - {role: pgbouncer, tags: 'pgbouncer'}
 
 
 # Disables transparent huge pages (THP)
