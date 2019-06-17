@@ -27,7 +27,7 @@ couch_s3: False
 
 KSPLICE_ACTIVE: no
 
-shared_drive_enabled: False
+shared_drive_enabled: True
 
 etc_hosts_lines:
   - "{{ groups.proxy.0 }}		{{ SITE_HOST }}"
