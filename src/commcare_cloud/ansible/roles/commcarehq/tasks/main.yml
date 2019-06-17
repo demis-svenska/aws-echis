@@ -80,7 +80,7 @@
       pip:
         requirements: "{{ code_home }}/requirements-python3/prod-requirements.txt"
         virtualenv: "{{ py3_virtualenv_home }}"
-        virtualenv_python: "python3.7"
+        virtualenv_python: "python3.6"
         chdir: "{{ code_home }}"
       tags:
         - slow
@@ -103,23 +103,21 @@
 
 - name: Upgrade python packages
   pip:
-    name: "{{ item }}"
+    name:
+      - six
+      - pip
+      - setuptools
     state: latest
     virtualenv: "{{ virtualenv_home }}"
-  with_items:
-    - six
-    - pip
-    - setuptools
 
 - name: py3 Upgrade python packages
   pip:
-    name: "{{ item }}"
+    name:
+      - six
+      - pip
+      - setuptools
     state: latest
     virtualenv: "{{ py3_virtualenv_home }}"
-  with_items:
-    - six
-    - pip
-    - setuptools
   tags:
     - py3
 
