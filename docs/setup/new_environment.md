@@ -6,8 +6,8 @@ This document will walk you through the process of setting up a new monolith ser
 
 * A single server (referred to as the "monolith" from here) with:
     * At least: 4vCPUs, 16GB RAM, 20GB drive. This is the _absolute minimum_ required to run CommCareHQ as a demo, and any production environment should be given many more resources.
-    * Ubuntu 18.04 installed 
-* Access to the monolith via SSH with a user who has sudo access
+    * Ubuntu 18.04 server 64-bit installed 
+* Access to the monolith via SSH with a user who has sudo access. If you installed the base Ubuntu 18.04 image yourself, this should be the default.
 
 ## Step 1: Add Root User and Install Required System Packages
 
@@ -27,7 +27,13 @@ This document will walk you through the process of setting up a new monolith ser
     $ sudo passwd -u root
     ```
 
-    Edit `/etc/ssh/sshd_config`, and add the following line:
+    Edit `/etc/ssh/sshd_config`:
+    
+    ``` bash
+    $ sudo nano /etc/ssh/sshd_config
+    ```
+    
+    and add the following line at the bottom:
 
     ```
     PermitRootLogin yes
@@ -55,6 +61,8 @@ This document will walk you through the process of setting up a new monolith ser
     ``` bash
     $ git clone https://github.com/dimagi/sample-environment.git environments
     ```
+    
+    You can read more about the files contained in this environments folder [here](../commcare-cloud/env/index.md).
 
 1. Encrypt the provided ansible vault file by running:
 
@@ -63,6 +71,10 @@ This document will walk you through the process of setting up a new monolith ser
     ```
 
     Enter a strong password when prompted, and save this password somewhere safe as you will need it for any future changes to this file, as well as when you deploy and configuration changes to this machine.
+    
+    More information on ansible vault can be found in the [Ansible help pages](https://docs.ansible.com/ansible/latest/user_guide/vault.html).
+    
+    You can read more about how we use this vault file [here](https://github.com/dimagi/commcare-cloud/blob/master/src/commcare_cloud/ansible/README.md#managing-secrets-with-vault).
 
 ### Add passwords to the vault file
 
@@ -130,11 +142,14 @@ Even though we will be running all commands locally, we still need to add the us
     ```
 
 1. Add your system username to the `present` section of `~/environments/_users/dimagi.yml`. This username should correspond to the name you've used for the public key in the previous step.
-
+   
+    ``` bash
+    $ nano ~/environments/_users/dimagi.yml
+    ```
 
 ## Step 3: Install commcare-cloud
 
-Install commcare-cloud onto the monolith as described in [Installing CommCareHQ](installation.md#step-2) beginning with **Step 2**.
+Install commcare-cloud onto the monolith as described in [Installing commcare-cloud](installation.md#step-2) beginning with **Step 2**.
 
 ## Step 4: Set-up commcare-cloud
 
@@ -159,8 +174,11 @@ Install commcare-cloud onto the monolith as described in [Installing CommCareHQ]
     ``` bash
     $ echo "source ~/.commcare-cloud/load_config.sh" >> ~/.profile
     ```
+1. Load the commcare-cloud config so it takes effect immediately:
 
-1. Log out of your machine and log in again so these changes take effect.
+    ``` bash
+    $ source ~/.commcare-cloud/load_config.sh
+    ```
 
 ## Step 5: Update the known hosts file
 
@@ -221,3 +239,9 @@ $ commcare-cloud monolith fab deploy:resume=yes
 ## Step 9: Cleanup
 
 CommCare Cloud will no longer need the root user to be accessible via the password. The password can be removed if you wish.
+
+## Step 10: Troubleshooting
+
+If everything went well, you should now be able to access CommCareHQ from a browser. If you face any issues, it is recommended to review the [Troubleshooting first time setup](./troubleshooting.md) documentation. 
+
+You may also wish to look at the [Firefighting](../firefighting/index.md) page which lists out common issues that `commcare-cloud` can resolve.
