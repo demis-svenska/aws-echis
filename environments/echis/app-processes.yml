@@ -1,8 +1,11 @@
-jython_memory: "12288m"
+#jython_memory: "12288m"
 formplayer_memory: "12288m"
 # workers = static_factor + (factor * cpu_count)
-gunicorn_workers_factor: 0
-gunicorn_workers_static_factor: 6
+#gunicorn_workers_factor: 0
+#gunicorn_workers_static_factor: 6
+
+gunicorn_workers_static_factor: 0
+gunicorn_workers_factor: 2
 
 celery_processes:
   echis_server3: 
