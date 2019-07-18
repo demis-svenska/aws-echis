@@ -3,6 +3,7 @@ dev_users:
     - sravfeyn
     - administrator
     - pc
+    - sanjay
   absent:
     - echis_melese
     - jroth
