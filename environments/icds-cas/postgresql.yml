@@ -1,4 +1,5 @@
 DEFAULT_POSTGRESQL_HOST: pgmain0
+
 REPORTING_DATABASES:
   ucr: ucr
   icds-ucr-non-dashboard: icds-ucr-non-dashboard
@@ -38,10 +39,22 @@ pgbouncer_override:
 postgres_override:
   postgresql_max_stack_depth: 6MB
   postgresql_slow_log_threshold: 1000
+  postgresql_hba_entries:
+    - contype: host
+      databases: replication
+      users: hqrepl
+      netmask: 100.71.184.0/22
+    - contype: host
+      users: TCLBKPADMIN
+      netmask: 127.0.0.1/32
+    - contype: local
+      users: TCLBKPADMIN
+
 
 dbs:
   main:
     host: pgmain0
+    query_stats: True
   formplayer:
     host: pgmain0
   ucr:

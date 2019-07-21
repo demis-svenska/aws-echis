@@ -179,13 +179,11 @@ es_data
 {{ __couch12__ }}
 {{ __couch13__ }}
 {{ __couch14__ }}
-{{ __couch15__ }}
 
 [couchdb2:children]
 couch12
 couch13
 couch14
-couch15
 
 [couchdb2:vars]
 swap_size=8G
@@ -198,6 +196,7 @@ couchproxy0
 {{ __control__ }}
 
 {{ __djangomanage0__ }}
+{{ __djangomanage1__ }}
 
 [django_manage:children]
-djangomanage0
+djangomanage1
