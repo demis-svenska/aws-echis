@@ -1,0 +1,602 @@
+_global_changes:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527146294'
+_replicator:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527146293'
+_users:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527146293'
+commcarehq:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527170302'
+commcarehq__apps:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527170339'
+commcarehq__auditcare:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527170341'
+commcarehq__domains:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527170341'
+commcarehq__fixtures:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527170342'
+commcarehq__fluff-bihar:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527170354'
+commcarehq__m4change:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527170354'
+commcarehq__meta:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527170340'
+commcarehq__mvp-indicators:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527170355'
+commcarehq__receiverwrapper:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527170343'
+commcarehq__users:
+  by_range:
+    00000000-1fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    20000000-3fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    40000000-5fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    60000000-7fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    80000000-9fffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    a0000000-bfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    c0000000-dfffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+    e0000000-ffffffff:
+    - couchdb@172.19.3.41
+    - couchdb@172.19.3.40
+    - couchdb@172.19.4.38
+    - couchdb@172.19.4.39
+  shard_suffix: '.1527170311'
