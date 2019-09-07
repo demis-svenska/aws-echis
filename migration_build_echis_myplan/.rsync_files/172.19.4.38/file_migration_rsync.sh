@@ -1,9 +1,9 @@
 #!/bin/bash
 rsync -e 'ssh -oStrictHostKeyChecking=no' --append-verify -aH --info=progress2 \
     \
-    ansible@172.19.0.160:/opt/data/couchdb2/ /opt/data/couchdb2/ \
+    ansible@172.19.3.41:/opt/data/couchdb2/ /opt/data/couchdb2/ \
      \
-    --files-from /tmp/file_migration/172.19.0.160_4a7327fd__files \
+    --files-from /tmp/file_migration/172.19.3.41_4a7327fd__files \
     -r $@ &
 
     pids[0]=$!
