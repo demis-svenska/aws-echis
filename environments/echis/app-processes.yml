@@ -8,7 +8,7 @@ gunicorn_workers_static_factor: 0
 gunicorn_workers_factor: 2
 
 management_commands:
-  echis_server0:
+  echis_server3:
     run_submission_reprocessing_queue:
     queue_schedule_instances:
     handle_survey_actions:
@@ -16,7 +16,7 @@ management_commands:
     run_pillow_retry_queue:
 
 celery_processes:
-  echis_server0: 
+  echis_server3: 
     beat: {}
     flower: {}
     export_download_queue:
@@ -74,7 +74,7 @@ celery_processes:
       concurrency: 50
 
 pillows:
-  echis_server1:
+  echis_server2:
     CacheInvalidatePillow:
       num_processes: 6
     DefaultChangeFeedPillow:

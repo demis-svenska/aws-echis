@@ -7,7 +7,7 @@ postgres_override:
   postgresql_work_mem: '32MB'
 #  maintenance_work_mem: '2048MB'
 #  effective_cache_size: '16384MB'
-  postgresql_shared_buffers: '31GB'
+  postgresql_shared_buffers: '4GB'
   postgresql_checkpoint_completion_target: '0.7'
   postgresql_wal_buffers: '32MB'
   postgresql_default_statistics_target: '100'

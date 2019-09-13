@@ -2,7 +2,6 @@ dev_users:
   present:
     - sravfeyn
     - administrator
-    - pc
     - echis_demisew
     - sanjay
   absent:
