@@ -1,5 +1,11 @@
 internal_domain_name: moh.gov.et
 
+localsettings.BLOB_DB_MIGRATING_FROM_FS_TO_S3: True
+s3_blob_db_enabled: yes
+s3_blob_db_url: "172.19.4.43:9000"
+s3_blob_db_s3_bucket: 'echis'
+s3_bulk_delete_chunksize: 200
+
 DATADOG_ENABLED: True
 DATADOG_INTEGRATIONS_ENABLED: True
 
