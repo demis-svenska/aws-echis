@@ -9,7 +9,6 @@ from fabric.api import roles, parallel, sudo, env, run, local
 from fabric.colors import red
 from fabric.context_managers import cd
 from fabric.contrib import files
-from fabric.contrib.files import comment
 from fabric.contrib.project import rsync_project
 from fabric.operations import put
 from fabric import utils, operations
@@ -27,7 +26,10 @@ from ..const import (
     FORMPLAYER_BUILD_DIR,
     ROLES_CONTROL)
 from commcare_cloud.fab.utils import pip_install
-from .formplayer import clean_formplayer_releases
+from .formplayer import (
+    clean_formplayer_releases,
+    formplayer_is_running_from_old_release_location,
+)
 
 GitConfig = namedtuple('GitConfig', 'key value')
 
@@ -423,9 +425,7 @@ def clean_releases(keep=3):
     for release in to_remove:
         sudo('rm -rf {}/{}'.format(env.releases, release))
 
-    remaining_releases = set(releases) - set(to_remove)
-    for release in remaining_releases:
-        clean_formplayer_releases(os.path.join(env.releases, release))
+    clean_formplayer_releases()
 
     # as part of the clean up step, run gc in the 'current' directory
     git_gc_current()
@@ -445,11 +445,12 @@ def copy_localsettings(full_cluster=True):
 @parallel
 @roles(ROLES_FORMPLAYER)
 def copy_formplayer_properties():
-    sudo(
-        'cp -r {} {}'.format(
-            os.path.join(env.code_current, FORMPLAYER_BUILD_DIR),
-            os.path.join(env.code_root, FORMPLAYER_BUILD_DIR)
-        ))
+    if formplayer_is_running_from_old_release_location():
+        sudo(
+            'cp -r {} {}'.format(
+                os.path.join(env.code_current, FORMPLAYER_BUILD_DIR),
+                os.path.join(env.code_root, FORMPLAYER_BUILD_DIR)
+            ))
 
 
 @parallel
