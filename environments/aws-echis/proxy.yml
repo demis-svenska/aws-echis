@@ -1,0 +1,7 @@
+SITE_HOST: 'echisdev.moh.gov.et'
+#SITE_HOST: "{{ hostvars[groups.proxy.0].ansible_hostname }}"
+nginx_max_worker_connection: 2048
+nginx_worker_rlimit_nofile : 131072 
+primary_ssl_env: "echisdev"
+fake_ssl_cert: yes
+letsencrypt_cchq_ssl: True

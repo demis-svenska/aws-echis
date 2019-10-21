@@ -1,0 +1,9 @@
+- hosts: couchdb2_proxy:proxy:webworkers
+  roles:
+    - role: ome.ssl_certificate
+  handlers:
+    - name: restart nginx
+      listen: ssl certificate changed
+      service:
+        name: nginx
+        state: restarted
