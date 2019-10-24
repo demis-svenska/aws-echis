@@ -1,8 +1,8 @@
 internal_domain_name: moh.gov.et
 
-localsettings.BLOB_DB_MIGRATING_FROM_FS_TO_S3: True
+#localsettings.BLOB_DB_MIGRATING_FROM_FS_TO_S3: True
 s3_blob_db_enabled: yes
-s3_blob_db_url: "172.19.4.43:9000"
+s3_blob_db_url: "http://172.19.4.43:9000"
 s3_blob_db_s3_bucket: 'echis'
 s3_bulk_delete_chunksize: 200
 
@@ -67,8 +67,12 @@ localsettings:
     - 172.19.3.40
     - 172.19.3.41
     - 172.19.4.33
-    - 172.19.4.39
+    - 172.19.4.35
+    - 172.19.4.36
     - 172.19.4.37
+    - 172.19.4.41
+    - 172.19.4.42
+    - 172.19.4.43
   COMMCARE_HQ_NAME: 'eCHIS Portal'
   COMMCARE_NAME: 'eCHIS'
   COUCH_CACHE_DOCS: True
@@ -93,15 +97,15 @@ localsettings:
   ENTERPRISE_MODE: True
   RESTRICT_DOMAIN_CREATION: True
 
-PY3_RUN_CELERY_BEAT: False
-PY3_RUN_CELERY_FLOWER: False
-PY3_RUN_CELERY_WORKER: False
-PY3_RUN_ERRAND_BOY: False
-PY3_RUN_GUNICORN: False
-PY3_RUN_MANAGEMENT: False
-PY3_RUN_PILLOWTOP: False
-PY3_RUN_WEBSOCKETS: False
+#PY3_RUN_CELERY_BEAT: False
+#PY3_RUN_CELERY_FLOWER: False
+#PY3_RUN_CELERY_WORKER: False
+#PY3_RUN_ERRAND_BOY: False
+#PY3_RUN_GUNICORN: False
+#PY3_RUN_MANAGEMENT: False
+#PY3_RUN_PILLOWTOP: False
+#PY3_RUN_WEBSOCKETS: False
 
 minio_server_datadirs:
-  - /opt/data/
-minio_server_cluster_nodes: "{{ groups['minio']|map('string_prefix', '/opt/data')|map('string_postfix', 'http://')|list }}"
+  - /usr/local/share/minio
+minio_server_cluster_nodes: "{{ groups['minio']|map('string_prefix', '/usr/local/share/minio')|map('string_postfix', 'http://')|list }}"
