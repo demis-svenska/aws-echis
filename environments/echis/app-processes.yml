@@ -79,10 +79,8 @@ pillows:
       num_processes: 6
     DefaultChangeFeedPillow:
       num_processes: 10
-    GroupPillow:
-      num_processes: 1
-    GroupToUserPillow:
-      num_processes: 1
+    group-pillow:
+      num_processes: 5
     SqlSMSPillow:
       num_processes: 1
     UnknownUsersPillow:
@@ -93,27 +91,21 @@ pillows:
       num_processes: 2
     UserGroupsDbKafkaPillow:
       num_processes: 2
-    UserPillow:
-      num_processes: 2
+    user-pillow:
+      num_processes: 5
     AppDbChangeFeedPillow:
       num_processes: 10
-    FormSubmissionMetadataTrackerPillow:
-      num_processes: 4
     ApplicationToElasticsearchPillow:
       num_processes: 3
-    CaseToElasticsearchPillow:
-      num_processes: 10
     DomainDbKafkaPillow:
       num_processes: 10
     KafkaDomainPillow:
       num_processes: 6
-    XFormToElasticsearchPillow:
-      num_processes: 3
-    kafka-ucr-static:
+    case-pillow,xform-pillow,user-pillow:
+      num_processes: 15
+    case-pillow:
       num_processes: 10
-    kafka-ucr-main:
-      num_processes: 10
-    CaseSearchToElasticsearchPillow:
-      num_processes: 10
+    xform-pillow:
+      num_processes: 12
     LedgerToElasticsearchPillow:
       num_processes: 1
