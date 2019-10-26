@@ -73,6 +73,9 @@ localsettings:
     - 172.19.4.41
     - 172.19.4.42
     - 172.19.4.43
+  SENTRY_ORGANIZATION_SLUG: 'org slug'
+  SENTRY_PROJECT_SLUG: 'project slug'
+  SENTRY_REPOSITORY: 'fmoh'
   COMMCARE_HQ_NAME: 'eCHIS Portal'
   COMMCARE_NAME: 'eCHIS'
   COUCH_CACHE_DOCS: True
