@@ -125,10 +125,13 @@ localsettings:
   SMS_QUEUE_ENABLED: True
   SUMOLOGIC_URL: "{{ localsettings_private.SUMOLOGIC_URL }}"
   SYNC_CASE_FOR_MESSAGING_ON_SAVE: False
+  LOCAL_MIDDLEWARE:
+    - 'custom.icds_reports.middleware.ICDSAuditMiddleware'
 #  STATIC_ROOT:
   TRANSFER_SERVER: 'nginx'
   WS4REDIS_CONNECTION_HOST: "{{ groups.redis.0 }}"
   OBFUSCATE_PASSWORD_FOR_NIC_COMPLIANCE: True
+  USER_REPORTING_METADATA_BATCH_ENABLED: True
   UCR_COMPARISONS:
     static-mpr_1_person_cases:
     static-mpr_2a_3_child_delivery_forms:

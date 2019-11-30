@@ -1,7 +1,6 @@
 internal_domain_name: 'internal-icds.commcarehq.org'
 daily_deploy_email: tech-announce-daily@dimagi.com
 
-
 elasticsearch_endpoint: '{{ groups.es0.0 }}'
 elasticsearch_cluster_name: 'icds-2.0'
 elasticsearch_version: 1.7.6
@@ -106,6 +105,33 @@ s3_blob_db_url: "https://mowcddbmum.ipstorage.tatacommunications.com"
 s3_blob_db_s3_bucket: 'mowcddb-c1'
 s3_bulk_delete_chunksize: 200
 
+additional_logrotate_scripts:
+  webworkers:
+    - name: "kafka-audit"
+      path: "{{log_home}}/commcarehq.kafka_audit.log"
+      options:
+        - hourly
+        - rotate 5
+        - missingok
+        - nocompress
+        - copytruncate
+        - nocreate
+        - sharedscripts
+      scripts:
+        postrotate: "invoke-rc.d rsyslog rotate >/dev/null 2>&1 || true"
+
+additional_syslog_config:
+  webworkers:
+    - dest: /etc/rsyslog.d/10-kafka-audit.conf
+      content: |-
+        $FileCreateMode 0644
+        :programname, isequal, "kafka_audit" {
+            {{log_home}}/commcarehq.kafka_audit.log
+            stop
+        }
+
+kafka_log_retention: 504 # 21 days
+
 localsettings:
   ALLOWED_HOSTS:
     - '{{ CAS_SITE_HOST }}'
@@ -124,13 +150,13 @@ localsettings:
   BANK_SWIFT_CODE: 'CTZIUS33'
   BIGCOUCH: True
   BIGCOUCH_QUORUM_COUNT: 2
+  BYPASS_SESSIONS_FOR_MOBILE: True
   CASE_ES_DROP_FORM_FIELDS: True
   CELERY_TIMEZONE: 'Asia/Kolkata'
   COMMCARE_HQ_NAME: 'ICDS-CAS Server'
   COMMCARE_NAME: 'ICDS-CAS'
   COUCH_CACHE_DOCS: True
   COUCH_CACHE_VIEWS: True
-  COUCH_STALE_QUERY: 'update_after'
   DAYS_TO_KEEP_DEVICE_LOGS: 45
   DEPLOY_MACHINE_NAME: "{{ alt_hostname|default(ansible_hostname) }}"
   EMAIL_SMTP_HOST: relay.sendermile.com
@@ -153,6 +179,21 @@ localsettings:
   INVOICE_PREFIX: INC-
   INVOICE_STARTING_NUMBER: 5000
   KAFKA_API_VERSION: [0, 8, 2]
+  LOCAL_LOGGING_CONFIG:
+    formatters:
+      kafka_audit:
+        format: 'kafka_audit ,%(message)s'
+    loggers:
+      kafka_producer_audit:
+        handlers: ['kafka_audit']
+        level: 'DEBUG'
+        propagate: False
+    handlers:
+      kafka_audit:
+        level: 'DEBUG'
+        class: 'logging.handlers.SysLogHandler'
+        formatter: 'kafka_audit'
+        address: '/dev/log'
   LOCAL_MIDDLEWARE:
     - 'custom.icds_reports.middleware.ICDSAuditMiddleware'
   LOCAL_PILLOWS:
@@ -176,6 +217,7 @@ localsettings:
   REMINDERS_QUEUE_ENABLED: True
   SMS_GATEWAY_URL:
   SMS_QUEUE_ENABLED: True
+  STATIC_DATA_SOURCE_PROVIDERS: []
   # sumologic toggle is set to 0 so having this here just incurs another cache hit for nothing
   # can re-enable if we want to
   SUMOLOGIC_URL: # "{{ localsettings_private.SUMOLOGIC_URL }}"
@@ -186,4 +228,5 @@ localsettings:
   ENABLE_DRACONIAN_SECURITY_FEATURES: yes
   ICDS_DOMAIN: "{{ localsettings_private.ICDS_DOMAIN }}"
   USER_REPORTING_METADATA_UPDATE_FREQUENCY_HOURS: 6
-  WAREHOUSE_DATABASE_ALIAS: 'warehouse'
+  USER_REPORTING_METADATA_BATCH_ENABLED: True
+  USER_REPORTING_METADATA_BATCH_SCHEDULE: {'crontab': {'minute': '*/2', 'hour': '17-21'}}
