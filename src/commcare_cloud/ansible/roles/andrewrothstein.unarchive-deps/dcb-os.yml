@@ -19,6 +19,10 @@
 - fedora_28
 - fedora_29
 - fedora_30
+<<<<<<< HEAD
+=======
+- ubi8_8.0
+>>>>>>> demis/master
 - ubuntu_bionic
 - ubuntu_trusty
 - ubuntu_xenial

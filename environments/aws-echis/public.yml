@@ -3,8 +3,15 @@ internal_domain_name: moh.gov.et
 DATADOG_ENABLED: True
 DATADOG_INTEGRATIONS_ENABLED: True
 
+localsettings.BLOB_DB_MIGRATING_FROM_FS_TO_S3: True
+s3_blob_db_enabled: yes
+s3_blob_db_url: "http://172.31.37.175:9000"
+s3_blob_db_s3_bucket: 'echis'
+s3_bulk_delete_chunksize: 200
+
+
 elasticsearch_endpoint: '{{ groups.elasticsearch.0 }}'
-elasticsearch_memory: '8192m'
+elasticsearch_memory: '1024m'
 elasticsearch_cluster_name: 'echis-es'
 elastcsearch_backup_days: 3
 elasticsearch_version: 1.7.6
@@ -59,8 +66,9 @@ localsettings:
     - 172.31.32.196
     - 172.31.43.119
     - 172.31.37.175
-  COMMCARE_HQ_NAME: 'eCHIS Portal'
-  COMMCARE_NAME: 'eCHIS'
+    - 172.31.37.75
+  COMMCARE_HQ_NAME: 'eCHIS-dev Portal'
+  COMMCARE_NAME: 'eCHISd-dev'
   COUCH_CACHE_DOCS: True
   COUCH_CACHE_VIEWS: True
   COUCH_STALE_QUERY: 'update_after'
@@ -70,7 +78,7 @@ localsettings:
   EMAIL_USE_TLS: yes
   ENABLE_SOFT_ASSERT_EMAILS: no
   ENFORCE_TWO_FACTOR_FOR_SUPERUSERS: False
-  HQ_INSTANCE: 'echis'
+  HQ_INSTANCE: 'echis-dev'
   INACTIVITY_TIMEOUT: 20160
   REDIS_DB: '0'
   REDIS_HOST: "{{ groups.redis.0 }}"
@@ -83,14 +91,6 @@ localsettings:
   ENTERPRISE_MODE: True
   RESTRICT_DOMAIN_CREATION: True
 
-PY3_RUN_CELERY_BEAT: False
-PY3_RUN_CELERY_FLOWER: False
-PY3_RUN_CELERY_WORKER: False
-PY3_RUN_ERRAND_BOY: False
-PY3_RUN_GUNICORN: False
-PY3_RUN_MANAGEMENT: False
-PY3_RUN_PILLOWTOP: False
-PY3_RUN_WEBSOCKETS: False
 
 minio_server_datadirs:
   - /opt/data/

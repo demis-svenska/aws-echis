@@ -28,6 +28,10 @@ env:
 - OS=fedora_28
 - OS=fedora_29
 - OS=fedora_30
+<<<<<<< HEAD
+=======
+- OS=ubi8_8.0
+>>>>>>> demis/master
 - OS=ubuntu_bionic
 - OS=ubuntu_trusty
 - OS=ubuntu_xenial
